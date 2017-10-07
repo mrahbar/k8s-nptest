@@ -1,0 +1,8 @@
+*.swp
+*~
+.idea/
+*.iml
+*.tmp
+*.bz2
+vendor/
+-v
