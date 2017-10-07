@@ -31,7 +31,7 @@ The orchestrator and worker pods run independently of the initiator script, with
 The iperf output (both TPC and UDP modes) and the netperf TCP output from all worker nodes is uploaded to the orchestrator pod where it is filtered and the results are written to the output file as well as to stdout log.
 
 ## Output Raw CSV data
-
+**All units in the csv file are in Gbits/second**
 ```console
 MSS                                          , Maximum, 96, 352, 608, 864, 1120, 1376,
 1 iperf TCP. Same VM using Pod IP            ,35507.000000,33835,33430,35372,35220,35373,35507,
