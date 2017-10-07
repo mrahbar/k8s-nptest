@@ -29,23 +29,26 @@ The 5 major network traffic paths are combination of Pod IP vs Virtual IP and wh
 
 The orchestrator and worker pods run independently of the initiator script, with the orchestrator pod sending work items to workers till the testcase schedule is complete.
 The iperf output (both TPC and UDP modes) and the netperf TCP output from all worker nodes is uploaded to the orchestrator pod where it is filtered and the results are written to the output file as well as to stdout log.
+Default file locations are /tmp/result.csv and /tmp/output.txt for the raw results.
 
 ## Output Raw CSV data
 **All units in the csv file are in Gbits/second**
 ```console
-MSS                                          , Maximum, 96, 352, 608, 864, 1120, 1376,
-1 iperf TCP. Same VM using Pod IP            ,35507.000000,33835,33430,35372,35220,35373,35507,
-2 iperf TCP. Same VM using Virtual IP        ,32997.000000,32689,32997,32256,31995,31904,31830,
-3 iperf TCP. Remote VM using Pod IP          ,10652.000000,8793,9836,10602,9959,9941,10652,
-4 iperf TCP. Remote VM using Virtual IP      ,11046.000000,10429,11046,10064,10622,10528,10246,
-5 iperf TCP. Hairpin Pod to own Virtual IP   ,32400.000000,31473,30253,32075,32058,32400,31734,
-6 iperf UDP. Same VM using Pod IP            ,10642.000000,10642,
-7 iperf UDP. Same VM using Virtual IP        ,8983.000000,8983,
-8 iperf UDP. Remote VM using Pod IP          ,11143.000000,11143,
-9 iperf UDP. Remote VM using Virtual IP      ,10836.000000,10836,
-10 netperf. Same VM using Pod IP             ,11675.380000,11675.38,
-11 netperf. Same VM using Virtual IP         ,0.000000,0.00,
-12 netperf. Remote VM using Pod IP           ,6646.820000,6646.82,
-13 netperf. Remote VM using Virtual IP       ,0.000000,0.00,
-
+ALL TESTCASES AND MSS RANGES COMPLETE - GENERATING CSV OUTPUT
+the output for each MSS testpoint is a single value in Gbits/sec 
+MSS , Maximum, 96, 160, 224, 288, 352, 416, 480, 544, 608, 672, 736, 800, 864, 928, 992, 1056, 1120, 1184, 1248, 1312, 1376, 1460
+1 iperf TCP. Same VM using Pod IP ,24252.000000,22650,23224,24101,23724,23532,23092,23431,24102,24072,23431,23871,23897,23275,23146,23535,24252,23662,22133,,23514,23796,24008,
+2 iperf TCP. Same VM using Virtual IP ,26052.000000,26052,0,25382,23702,0,22703,22549,0,23085,22074,0,22366,23516,0,23059,22991,0,23231,22603,0,23255,23605,
+3 iperf TCP. Remote VM using Pod IP ,910.000000,239,426,550,663,708,742,769,792,811,825,838,849,859,866,874,883,888,894,898,903,907,910,
+4 iperf TCP. Remote VM using Virtual IP ,906.000000,0,434,546,0,708,744,0,791,811,0,837,849,0,868,875,0,888,892,0,903,906,0,
+5 iperf TCP. Hairpin Pod to own Virtual IP ,23493.000000,22798,21629,0,22159,21132,0,22900,21816,0,21775,21425,0,22172,21611,21869,22865,22003,22562,23493,22684,217872,
+6 iperf UDP. Same VM using Pod IP ,6647.000000,6647,
+7 iperf UDP. Same VM using Virtual IP ,6554.000000,6554,
+8 iperf UDP. Remote VM using Pod IP ,1877.000000,1877,
+9 iperf UDP. Remote VM using Virtual IP ,1695.000000,1695,
+10 netperf. Same VM using Pod IP ,7003.430000,7003.43,
+11 netperf. Same VM using Virtual IP ,0.000000,0.00,
+12 netperf. Remote VM using Pod IP ,908.460000,908.46,
+13 netperf. Remote VM using Virtual IP ,0.000000,0.00,
+END CSV DATA
 ```
